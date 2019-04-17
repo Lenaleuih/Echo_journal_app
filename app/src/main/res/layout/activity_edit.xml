@@ -24,34 +24,30 @@
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <Button
-            android:text="P"
+        <ImageButton
             android:id="@+id/addPicture"
-            android:background="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
-            android:layout_marginLeft="32dp"/>
+            android:src="@drawable/ic_add_picture"
+            android:layout_marginLeft="32dp"
+            android:background="@android:color/holo_blue_dark"/>
 
-        <Button
+        <ImageButton
             android:text="L"
             android:id="@+id/addLocation"
-            android:background="#ffffff"
+            android:src="@drawable/ic_add_location"
+            android:background="@android:color/holo_blue_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
             android:layout_marginLeft="30dp"/>
 
-        <Button
+        <ImageButton
             android:text="D"
             android:id="@+id/starTheDate"
-            android:background="#ffffff"
+            android:src="@drawable/ic_add_star"
+            android:background="@android:color/holo_blue_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
             android:layout_marginLeft="30dp"/>
 
     </LinearLayout>
