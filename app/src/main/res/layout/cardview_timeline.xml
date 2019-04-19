@@ -23,6 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginRight="16dp"
             tools:src="@drawable/journey1"
+            android:onClick="viewJournal"
             />
 
         <TextView
@@ -34,7 +35,6 @@
             android:textSize="30sp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:onClick="viewMessage"
             tools:text="One day with the game!"
             />
         <!--todo:onclickmethod-->

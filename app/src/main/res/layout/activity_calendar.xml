@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="#80cbc4"
     android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Echo"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        android:textAllCaps="true"
-        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,22 +14,23 @@
         android:layout_marginTop="64dp"
         android:text="Your calendar"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="#4A148C"
         android:textSize="23sp" />
 
     <LinearLayout
-        android:layout_width="330dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
         android:layout_marginTop="48dp"
+        android:layout_marginRight="44dp"
         android:background="@drawable/bg_calen">
 
         <CalendarView
+            android:id="@+id/calendarView"
             android:layout_width="wrap_content"
             android:layout_height="320dp">
-
-
         </CalendarView>
+
 
 
     </LinearLayout>
@@ -51,6 +43,6 @@
         android:background="@drawable/bg_btn"
         android:onClick="write"
         android:text="Write a new journal"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textColor="#4A148C" />
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -61,4 +62,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void write(View view) {
+        Intent msIntent = new Intent(this, EditActivity.class);
+        startActivity(msIntent);
+    }
+
+    public void viewJournal(View view) {
+        Intent msIntent = new Intent(this, ViewActivity.class);
+        startActivity(msIntent);
+    }
 }

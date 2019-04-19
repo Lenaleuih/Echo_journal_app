@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@android:color/background_light"
     android:orientation="vertical"
     tools:context=".EditActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Echo"
-        android:textColor="#ffffff"
-        android:textSize="30dp"
-        android:textAllCaps="true"
-        android:textAlignment="center" />
-
     <LinearLayout
+        android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp">
 
         <Button
-            android:text="P"
             android:id="@+id/addPicture"
-            android:background="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:background="#ffffff"
+            android:text="P"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
-            android:layout_marginLeft="32dp"/>
+            android:textSize="20dp" />
 
         <Button
-            android:text="L"
             android:id="@+id/addLocation"
-            android:background="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="#ffffff"
+            android:text="L"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
-            android:layout_marginLeft="30dp"/>
+            android:textSize="20dp" />
 
         <Button
-            android:text="D"
             android:id="@+id/starTheDate"
-            android:background="#ffffff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="#ffffff"
+            android:text="D"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp"
-            android:layout_marginLeft="30dp"/>
+            android:textSize="20dp" />
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/writeJournal"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/mainText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:hint="Type here"
-        android:inputType="textMultiLine"
-        android:gravity="left|top"
-        android:minLines="6"
-        android:layout_marginLeft="20dp"
-        android:paddingRight="290dp"
-        android:paddingBottom="360dp"/>
+        android:layout_below="@id/buttons">
+
+        <EditText
+            android:id="@+id/writeJournal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="#ffffff"
+            android:gravity="left|top"
+            android:hint="What are you thinking.."
+            android:minLines="8"
+            android:paddingRight="290dp"
+            android:paddingBottom="360dp" />
+
+    </ScrollView>
 
     <Button
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/mainText"
         android:id="@+id/submitJournal"
-        android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
         android:background="#ffffff"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/holo_blue_dark"
-        />
+        android:text="Save"
+        android:onClick="saveJournal"
+        android:textColor="@android:color/holo_blue_dark" />
 
-</LinearLayout>
+</RelativeLayout>
