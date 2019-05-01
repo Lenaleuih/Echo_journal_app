@@ -1,6 +1,5 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Journey So Far");
+        setTitle(" ");
 
         initialData();
 
@@ -55,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
     private void initialData() {
 
         journal = new ArrayList<>();
-        journal.add(new Journal("one day with game", "1993-2001", R.drawable.journey1));
-        journal.add(new Journal("ride with best friends", "2001-2009", R.drawable.journey2));
-        journal.add(new Journal("a sunny day", "2009-2017", R.drawable.journey3));
+        journal.add(new Journal(null,null,"Jun","12", getString(R.string.text1),123));
+        journal.add(new Journal(null,null,"Mar","30", getString(R.string.text2),123));
+        journal.add(new Journal(null,null,"May","3", getString(R.string.text3),123));
 
     }
 

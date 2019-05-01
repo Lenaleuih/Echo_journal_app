@@ -4,8 +4,27 @@
 
     <item
         android:id="@+id/calendarView"
-        android:title="Calendar"
-        app:showAsAction="never"
-        />
+        android:icon="@drawable/calendar"
+        android:title="calendar"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/markFunction"
+        android:icon="@drawable/bookmark"
+        android:title="bookmark"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/searchFunction"
+        android:icon="@drawable/search"
+        android:title="search"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="settings"
+        app:showAsAction="always" />
 
 </menu>

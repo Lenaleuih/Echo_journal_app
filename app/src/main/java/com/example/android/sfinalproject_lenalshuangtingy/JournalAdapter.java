@@ -26,9 +26,10 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
     @Override
     public void onBindViewHolder(JournalViewHolder holder, int position) {
         Journal journal = journals.get(position);
-        holder.getJournalTitleView().setText(journal.getJournalTitle());
-       // holder.getJournalInfoView().setText(president.getInfo());
-        holder.getJournalPhotoView().setImageResource(journal.getJournalPhoto());
+        holder.getMonthTextView().setText(journal.getJournalMonth());
+        holder.getDayTextView().setText(journal.getJournalDay());
+        holder.getContentTextView().setText(journal.getJournalText());
+
     }
 
     @Override

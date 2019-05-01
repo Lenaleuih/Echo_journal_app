@@ -21,5 +21,5 @@
         android:text="Write a new journal"
         android:onClick="write"
         />
-    <!--todo: onclick here-->
+
 </LinearLayout>

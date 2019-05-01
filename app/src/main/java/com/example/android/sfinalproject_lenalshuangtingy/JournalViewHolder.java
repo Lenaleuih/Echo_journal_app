@@ -12,47 +12,28 @@ import android.widget.Toast;
 public class JournalViewHolder extends RecyclerView.ViewHolder {
     //a)
     private CardView cardView;
+    private TextView monthTextView;
+    private TextView dayTextView;
+    private TextView contentTextView;
+    private Context context;
 
-    public JournalViewHolder(@NonNull View itemView, CardView cardView, TextView journalTitleView,
-                             ImageView journalPhotoView, Context context) {
+    public JournalViewHolder(View itemView, final Context context){
         super(itemView);
-        this.cardView = cardView;
-        this.journalTitleView = journalTitleView;
-        this.journalPhotoView = journalPhotoView;
-        this.context = context;
+        cardView = (CardView)itemView.findViewById(R.id.card_view);
+        monthTextView=(TextView)itemView.findViewById(R.id.month);
+        dayTextView=(TextView)itemView.findViewById(R.id.day);
+        contentTextView=(TextView)itemView.findViewById(R.id.text);
+        this.context=context;
+
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, dayTextView.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    public CardView getCardView() {
-        return cardView;
-    }
-
-    public void setCardView(CardView cardView) {
-        this.cardView = cardView;
-    }
-
-    public TextView getJournalTitleView() {
-        return journalTitleView;
-    }
-
-    public void setJournalTitleView(TextView presidentNameView) {
-        this.journalTitleView = presidentNameView;
-    }
-
-   // public TextView getJournalInfoView() {
-   //     return journalInfoView;
-   // }
-
-//    public void setJournalInfoView(TextView presidentInfoView) {
-//        this.journalInfoView = presidentInfoView;
-//    }
-
-    public ImageView getJournalPhotoView() {
-        return journalPhotoView;
-    }
-
-    public void setJournalPhotoView(ImageView presidentPhotoView) {
-        this.journalPhotoView = presidentPhotoView;
-    }
 
     public Context getContext() {
         return context;
@@ -62,27 +43,28 @@ public class JournalViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
     }
 
-    private TextView journalTitleView;
-    //private TextView journalinfoView;
-    private ImageView journalPhotoView;
-    private Context context;
+    public TextView getContentTextView() {
+        return contentTextView;
+    }
 
-    //b)
-    public JournalViewHolder(View itemView, final Context context) {
-        super(itemView);
-        cardView = (CardView) itemView.findViewById(R.id.card_view);
-        journalTitleView = (TextView) itemView.findViewById(R.id.journalTitle);
-        //journalInfoView = (TextView) itemView.findViewById(R.id.person_info);
-        journalPhotoView = (ImageView) itemView.findViewById(R.id.journalPhoto);
-        this.context = context;
+    public void setContentTextView(TextView contentTextView) {
+        this.contentTextView = contentTextView;
+    }
 
-//c)
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, journalTitleView.getText().toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    public TextView getDayTextView() {
+        return dayTextView;
+    }
+
+    public void setDayTextView(TextView dayTextView) {
+        this.dayTextView = dayTextView;
+    }
+
+    public TextView getMonthTextView() {
+        return monthTextView;
+    }
+
+    public void setMonthTextView(TextView monthTextView) {
+        this.monthTextView = monthTextView;
     }
 }
 
