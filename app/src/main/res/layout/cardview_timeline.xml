@@ -40,11 +40,12 @@
             android:layout_width="match_parent"
             android:layout_height="88dp"
             android:layout_toRightOf="@+id/month"
-            android:layout_marginRight="48dp"
+            android:layout_marginRight="16dp"
             android:background="@drawable/back"
             android:textColor="@color/colorTextColor"
             android:textSize="16sp"
             android:padding="8dp"
+            android:maxLines="3"
             tools:text="One day with the game!\n one day with the gamewojojfwenio" />
 
 

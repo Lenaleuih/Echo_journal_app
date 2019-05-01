@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryCream"
+    tools:context=".SettingActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="darkmode" />
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="passcode" />
+
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="reminder" />
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="export" />
+
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="feedback" />
+
+
+        <TextView
+            style="@style/settingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="donation" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <ToggleButton
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ToggleButton
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ToggleButton
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:text="Go" />
+        <Button
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:text="send" />
+        <Button
+            style="@style/settingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:text="Go" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
