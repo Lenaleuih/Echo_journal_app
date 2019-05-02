@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SettingActivity"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".PromptActivity"></activity>
+        <activity
+            android:name=".SettingActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ReEditActivity"
-            android:parentActivityName=".ViewActivity"></activity>
+            android:parentActivityName=".ViewActivity" />
         <activity
             android:name=".ViewActivity"
             android:parentActivityName=".CalendarActivity" />

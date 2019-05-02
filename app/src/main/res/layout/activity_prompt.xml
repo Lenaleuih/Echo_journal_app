@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PromptActivity">
+
+    <TextView
+        style="@style/settingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Learning" />
+
+
+    <RadioButton
+        android:id="@+id/learning1btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
+        android:maxEms="15"
+        android:singleLine="false"
+        android:text="What's the most important thing you've leanrt today" />
+
+
+    <RadioButton
+        android:id="@+id/learning2btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
+        android:maxEms="15"
+        android:singleLine="false"
+        android:text="what do you want to learn more about in the future" />
+
+    <TextView
+        style="@style/settingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Relationship" />
+
+    <RadioButton
+        android:id="@+id/learning3btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
+        android:maxEms="15"
+        android:singleLine="false"
+        android:text="what/Who are you most grateful today" />
+
+
+    <TextView
+        style="@style/settingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="creation" />
+
+    <RadioButton
+        android:id="@+id/learning4btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="16dp"
+        android:maxEms="15"
+        android:singleLine="false"
+        android:text="Have you expressed yoruself today? in what ways?" />
+
+
+</LinearLayout>

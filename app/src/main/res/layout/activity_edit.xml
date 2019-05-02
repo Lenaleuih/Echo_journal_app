@@ -1,83 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/background_light"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryCream"
     tools:context=".EditActivity">
 
     <LinearLayout
-        android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/addPicture"
+        <TextView
+            android:id="@+id/currentTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="test"
             android:layout_marginLeft="32dp"
-            android:background="#ffffff"
-            android:text="P"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="30sp"
+            android:gravity="center_vertical"/>
 
-        <Button
-            android:id="@+id/addLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:background="#ffffff"
-            android:text="L"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorTextColor" />
 
-        <Button
-            android:id="@+id/starTheDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:background="#ffffff"
-            android:text="D"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/reEdit"
+            android:layout_below="@id/title">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text=""
+                android:textColor="@color/colorTextColor"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+        </ScrollView>
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/mainText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttons">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/writeJournal"
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="#ffffff"
-            android:gravity="left|top"
-            android:hint="What are you thinking.."
-            android:minLines="8"
-            android:paddingRight="290dp"
-            android:paddingBottom="360dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft= "48dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/colorPrimaryCream"
+            android:drawableTop="@drawable/hints"
+            android:onClick="launchPrompt"
+            android:paddingTop="12dp"
+            android:paddingBottom="0dp" />
 
-    </ScrollView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft= "32dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/colorPrimaryCream"
+            android:drawableTop="@drawable/click"
 
-    <Button
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/mainText"
-        android:id="@+id/submitJournal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:background="#ffffff"
-        android:text="Save"
-        android:onClick="saveJournal"
-        android:textColor="@android:color/holo_blue_dark" />
+            android:paddingTop="12dp"
+            android:paddingBottom="0dp" />
 
+    </LinearLayout>
 </RelativeLayout>
