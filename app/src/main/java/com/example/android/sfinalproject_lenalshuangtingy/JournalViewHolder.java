@@ -17,13 +17,14 @@ public class JournalViewHolder extends RecyclerView.ViewHolder {
     private TextView contentTextView;
     private Context context;
 
-    public JournalViewHolder(View itemView, final Context context){
+    public JournalViewHolder(View itemView, final Context context) {
         super(itemView);
-        cardView = (CardView)itemView.findViewById(R.id.card_view);
-        monthTextView=(TextView)itemView.findViewById(R.id.month);
-        dayTextView=(TextView)itemView.findViewById(R.id.day);
-        contentTextView=(TextView)itemView.findViewById(R.id.text);
-        this.context=context;
+        cardView = (CardView) itemView.findViewById(R.id.card_view);
+        monthTextView = (TextView) itemView.findViewById(R.id.month);
+        dayTextView = (TextView) itemView.findViewById(R.id.day);
+        contentTextView = (TextView) itemView.findViewById(R.id.text);
+
+        this.context = context;
 
 
         cardView.setOnClickListener(new View.OnClickListener() {
