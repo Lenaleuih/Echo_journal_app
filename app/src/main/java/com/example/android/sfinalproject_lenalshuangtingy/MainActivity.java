@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     JournalAdapter adapter;
     TextView currentDate;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         String date = df.format(Calendar.getInstance().getTime());
         currentDate.setText(date);
 
+        updateJournal();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,4 +94,25 @@ public class MainActivity extends AppCompatActivity {
         Intent msIntent = new Intent(this, ViewActivity.class);
         startActivity(msIntent);
     }
+
+
+    public void updateJournal() {
+        journal.add(getNewEntry());
+        adapter.notifyDataSetChanged();
+    }
+
+    private Journal getNewEntry() {
+        Intent msIntent = getIntent();
+        String input = msIntent.getStringExtra("WHOLE_ENTRY");
+
+        //construct a new Journal object
+        SimpleDateFormat df2 = new SimpleDateFormat("MMM");
+        String month_name = df2.format(Calendar.getInstance().getTime());
+
+        SimpleDateFormat df3 = new SimpleDateFormat("d");
+        String day_name = df3.format(Calendar.getInstance().getTime());
+
+        return new Journal(null,null,month_name, day_name, input, 123);
+    }
+
 }

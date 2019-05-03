@@ -1,26 +1,16 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
 public class Journal {
-    private String journalTitle;
     private String journalMonth;
     private String journalDay;
     private String journalText;
     private int journalPhoto;
 
     public Journal(String journalTitle, String journalInfo, String journalMonth, String journalDay, String journalText, int journalPhoto) {
-        this.journalTitle = journalTitle;
         this.journalMonth = journalMonth;
         this.journalDay = journalDay;
         this.journalText = journalText;
         this.journalPhoto = journalPhoto;
-    }
-
-    public String getJournalTitle() {
-        return journalTitle;
-    }
-
-    public void setJournalTitle(String journalTitle) {
-        this.journalTitle = journalTitle;
     }
 
 

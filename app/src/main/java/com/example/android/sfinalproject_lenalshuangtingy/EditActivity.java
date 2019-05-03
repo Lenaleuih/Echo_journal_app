@@ -18,6 +18,7 @@ public class EditActivity extends AppCompatActivity {
     private TextView currentTime;
     private String prompts;
     private EditText content;
+    private String entry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,6 @@ public class EditActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void saveJournal(View view) {
-        Toast.makeText(this, "saved", Toast.LENGTH_SHORT).show();
-    }
 
     public void launchPrompt(View view) {
         Intent msIntent = new Intent(this, PromptActivity.class);
@@ -58,6 +56,13 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void saveText(View view) {
-        
+        Intent intent = new Intent(this, MainActivity.class);
+
+        entry=content.getText().toString();
+        intent.putExtra("WHOLE_ENTRY", entry);
+
+        startActivity(intent);
+
+
     }
 }
