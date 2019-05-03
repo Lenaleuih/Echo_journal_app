@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,12 +16,17 @@ import java.util.Calendar;
 public class EditActivity extends AppCompatActivity {
 
     private TextView currentTime;
+    private String prompts;
+    private EditText content;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
         setTitle("Write down your thoughts");
+
+        content = (EditText) findViewById(R.id.input);
 
         //display the current time on the layout
         currentTime=(TextView)findViewById(R.id.currentTime);
@@ -40,6 +46,18 @@ public class EditActivity extends AppCompatActivity {
 
     public void launchPrompt(View view) {
         Intent msIntent = new Intent(this, PromptActivity.class);
-        startActivity(msIntent);
+        startActivityForResult(msIntent,111);
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 111 && resultCode == RESULT_OK) {
+            prompts = data.getStringExtra(Keys.PROMPT_KEY);
+            content.setText(prompts);
+        }
+    }
+
+    public void saveText(View view) {
+        
     }
 }

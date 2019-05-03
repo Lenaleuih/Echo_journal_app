@@ -9,7 +9,6 @@
         <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>
         <item name="actionButtonStyle">@style/myActionButtonStyle</item>
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="actionBarStyle">@style/myActionButtonStyle</item>
     </style>
 
     <!--define the style of action button-->
@@ -22,7 +21,7 @@
     <!--define the style of action bar-->
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">@color/colorPrimaryDarkerBrown</item>
+        <item name="android:background">@color/colorPrimaryCream</item>
 
         <!--define the textStyle for SettingActivity-->
     </style>
