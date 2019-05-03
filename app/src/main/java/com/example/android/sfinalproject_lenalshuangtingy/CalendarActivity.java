@@ -37,6 +37,8 @@ public class CalendarActivity extends AppCompatActivity {
                 Intent msIntent = new Intent(CalendarActivity.this, ViewActivity.class);
                 startActivity(msIntent);
 
+                //to do; read data from database and use date; you can get month+dayofmonth directly
+
             }
         });
 

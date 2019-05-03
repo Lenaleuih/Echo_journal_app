@@ -1,6 +1,5 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,13 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Journal> journal;
     JournalAdapter adapter;
     TextView currentDate;
+    Journal newEntry;
 
 
     @Override
@@ -43,12 +42,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         //display the current date on the layout
-        currentDate=(TextView)findViewById(R.id.currentDate);
+        currentDate = (TextView) findViewById(R.id.currentDate);
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         currentDate.setText(date);
-
-        updateJournal();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.launchSettings:
                 Intent intent2 = new Intent(this, SettingActivity.class);
@@ -78,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
     private void initialData() {
 
         journal = new ArrayList<>();
-        journal.add(new Journal(null,null,"Jun","12", getString(R.string.text1),123));
-        journal.add(new Journal(null,null,"Mar","30", getString(R.string.text2),123));
-        journal.add(new Journal(null,null,"May","3", getString(R.string.text3),123));
+        journal.add(new Journal("Jun", "12", getString(R.string.text1), false));
+        journal.add(new Journal("Mar", "30", getString(R.string.text2), false));
+        journal.add(new Journal("May", "3", getString(R.string.text3), false));
 
     }
 
@@ -96,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void sync(View view) {
+        updateJournal();
+    }
+
     public void updateJournal() {
         journal.add(getNewEntry());
         adapter.notifyDataSetChanged();
@@ -103,16 +104,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Journal getNewEntry() {
         Intent msIntent = getIntent();
-        String input = msIntent.getStringExtra("WHOLE_ENTRY");
-
-        //construct a new Journal object
-        SimpleDateFormat df2 = new SimpleDateFormat("MMM");
-        String month_name = df2.format(Calendar.getInstance().getTime());
-
-        SimpleDateFormat df3 = new SimpleDateFormat("d");
-        String day_name = df3.format(Calendar.getInstance().getTime());
-
-        return new Journal(null,null,month_name, day_name, input, 123);
+        if ((Journal) msIntent.getSerializableExtra(Keys.NEW_ENTRY_KEY) != null) {
+            newEntry = (Journal) msIntent.getSerializableExtra(Keys.NEW_ENTRY_KEY);
+        } else {
+            newEntry = new Journal("", "", "", false);
+        }
+        return newEntry;
     }
+
 
 }

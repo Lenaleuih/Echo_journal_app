@@ -1,26 +1,22 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
-public class Journal {
+import java.io.Serializable;
+
+public class Journal implements Serializable {
     private String journalMonth;
     private String journalDay;
     private String journalText;
     private int journalPhoto;
+    private boolean marked;
 
-    public Journal(String journalTitle, String journalInfo, String journalMonth, String journalDay, String journalText, int journalPhoto) {
+    public Journal(String journalMonth, String journalDay, String journalText,  boolean marked) {
         this.journalMonth = journalMonth;
         this.journalDay = journalDay;
         this.journalText = journalText;
-        this.journalPhoto = journalPhoto;
+        this.marked = marked;
     }
 
 
-    public int getJournalPhoto() {
-        return journalPhoto;
-    }
-
-    public void setJournalPhoto(int journalPhoto) {
-        this.journalPhoto = journalPhoto;
-    }
 
     public String getJournalText() {
         return journalText;
@@ -44,5 +40,13 @@ public class Journal {
 
     public void setJournalMonth(String journalMonth) {
         this.journalMonth = journalMonth;
+    }
+
+    public boolean isMarked() {
+        return marked;
+    }
+
+    public void setMarked(boolean marked) {
+        this.marked = marked;
     }
 }

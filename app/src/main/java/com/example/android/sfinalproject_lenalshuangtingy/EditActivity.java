@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class EditActivity extends AppCompatActivity {
     private String prompts;
     private EditText content;
     private String entry;
+    private Boolean marked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +28,12 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         setTitle("Write down your thoughts");
+        marked = false;
 
         content = (EditText) findViewById(R.id.input);
 
         //display the current time on the layout
-        currentTime=(TextView)findViewById(R.id.currentTime);
+        currentTime = (TextView) findViewById(R.id.currentTime);
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         currentTime.setText(date);
@@ -41,10 +44,23 @@ public class EditActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.markFunction:
+                marked = true;
+
+                return true;
+
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     public void launchPrompt(View view) {
         Intent msIntent = new Intent(this, PromptActivity.class);
-        startActivityForResult(msIntent,111);
+        startActivityForResult(msIntent, 111);
 
     }
 
@@ -56,10 +72,17 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void saveText(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        entry = content.getText().toString();
 
-        entry=content.getText().toString();
-        intent.putExtra("WHOLE_ENTRY", entry);
+        SimpleDateFormat df2 = new SimpleDateFormat("MMM");
+        String month_name = df2.format(Calendar.getInstance().getTime());
+        SimpleDateFormat df3 = new SimpleDateFormat("d");
+        String day_name = df3.format(Calendar.getInstance().getTime());
+
+        Journal j = new Journal(month_name,day_name,entry,marked);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(Keys.NEW_ENTRY_KEY, j);
 
         startActivity(intent);
 

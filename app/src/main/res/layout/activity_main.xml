@@ -21,22 +21,36 @@
             android:id="@+id/currentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="test"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:textSize="26sp"
-            android:gravity="center_vertical"/>
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:text="test"
+            android:textSize="18sp" />
 
         <Button
+            android:id="@+id/addEntry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="99dp"
+            android:layout_marginLeft="56dp"
             android:layout_marginBottom="12dp"
             android:layout_toRightOf="@+id/currentDate"
             android:background="@color/colorPrimaryCream"
             android:drawableTop="@drawable/add"
             android:onClick="write"
+            android:paddingTop="12dp"
+            android:paddingBottom="0dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="16dp"
+            android:layout_toRightOf="@+id/addEntry"
+            android:background="@color/colorPrimaryCream"
+            android:drawableTop="@drawable/sync"
+            android:onClick="sync"
             android:paddingTop="12dp"
             android:paddingBottom="0dp" />
 

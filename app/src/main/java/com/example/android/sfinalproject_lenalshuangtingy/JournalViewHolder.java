@@ -30,6 +30,7 @@ public class JournalViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, dayTextView.getText().toString(), Toast.LENGTH_SHORT).show();
+                //initialize view activity and use the date (month+day) as the key
             }
         });
     }
