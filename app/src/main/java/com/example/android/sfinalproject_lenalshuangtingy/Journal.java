@@ -6,7 +6,6 @@ public class Journal implements Serializable {
     private String journalMonth;
     private String journalDay;
     private String journalText;
-    private int journalPhoto;
     private boolean marked;
 
     public Journal(String journalMonth, String journalDay, String journalText,  boolean marked) {

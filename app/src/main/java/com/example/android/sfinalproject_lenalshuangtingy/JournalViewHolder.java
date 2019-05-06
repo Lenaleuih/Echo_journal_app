@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class JournalViewHolder extends RecyclerView.ViewHolder {
-    //a)
+
     private CardView cardView;
     private TextView monthTextView;
     private TextView dayTextView;
     private TextView contentTextView;
     private Context context;
+    public Journal binding;
 
     public JournalViewHolder(View itemView, final Context context) {
         super(itemView);

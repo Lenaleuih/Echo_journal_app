@@ -10,9 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 public class EditActivity extends AppCompatActivity {
 
@@ -22,12 +26,13 @@ public class EditActivity extends AppCompatActivity {
     private String entry;
     private Boolean marked;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        setTitle("Write down your thoughts");
+        setTitle(" ");
         marked = false;
 
         content = (EditText) findViewById(R.id.input);
@@ -37,6 +42,8 @@ public class EditActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         currentTime.setText(date);
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -79,10 +86,12 @@ public class EditActivity extends AppCompatActivity {
         SimpleDateFormat df3 = new SimpleDateFormat("d");
         String day_name = df3.format(Calendar.getInstance().getTime());
 
-        Journal j = new Journal(month_name,day_name,entry,marked);
+        Journal j = new Journal(month_name, day_name, entry, marked);
+
 
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(Keys.NEW_ENTRY_KEY, j);
+
 
         startActivity(intent);
 

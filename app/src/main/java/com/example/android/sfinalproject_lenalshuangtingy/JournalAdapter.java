@@ -7,13 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
-    private List<Journal> journals;
+    private ArrayList<Journal> journals;
     private Context context;
 
-    public JournalAdapter(List<Journal> journals, Context context) {
+    public JournalAdapter(ArrayList<Journal> journals, Context context) {
         this.journals = journals;
         this.context = context;
     }
@@ -22,6 +23,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
     public JournalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_timeline, parent, false);
         return new JournalViewHolder(view, context);
+
     }
 
 
