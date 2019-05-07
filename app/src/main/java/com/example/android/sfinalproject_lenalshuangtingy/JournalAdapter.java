@@ -40,6 +40,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
             holder.getDayTextView().setTextColor(ctx.getResources().getColor(R.color.colorAccentGreen));
         }
 
+
     }
 
 
