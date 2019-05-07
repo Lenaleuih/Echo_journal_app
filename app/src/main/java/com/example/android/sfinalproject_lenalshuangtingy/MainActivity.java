@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Journal newEntry;
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    private RecyclerView babyRecyclerView;
 
 
     @Override
@@ -42,41 +43,36 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle(" ");
 
-        initialData();
 
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        babyRecyclerView = findViewById(R.id.recycler_view);
+        babyRecyclerView.setHasFixedSize(true);
+        babyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //read data from firebase
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("journal");
-//
-//        journals = new ArrayList<Journal>();
-//
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//
-//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-//                    Journal j = dataSnapshot1.getValue(Journal.class);
-//                    journals.add(j);
-//                }
-//                babyAdapter = new JournalAdapter(journals,MainActivity.this);
-//                recyclerView.setAdapter(babyAdapter);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//                Toast.makeText(MainActivity.this, "Opsss...Something is wrong", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
 
-        babyAdapter = new JournalAdapter(journals, this);
-        recyclerView.setAdapter(babyAdapter);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               journals = new ArrayList<>();
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
+                {
+                    Journal p = dataSnapshot1.getValue(Journal.class);
+                    journals.add(p);
+                }
+                babyAdapter = new JournalAdapter(journals,MainActivity.this);
+                babyRecyclerView.setAdapter(babyAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "Opsss...Something is wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //display the current date on the layout
         currentDate = (TextView) findViewById(R.id.currentDate);
@@ -84,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
         String date = df.format(Calendar.getInstance().getTime());
         currentDate.setText(date);
     }
+
+
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.firstmenu, menu);
@@ -109,14 +108,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void initialData() {
 
-        journals = new ArrayList<>();
-        journals.add(new Journal("Jun", "12", getString(R.string.text1), false));
-        journals.add(new Journal("Mar", "30", getString(R.string.text2), false));
-        journals.add(new Journal("May", "3", getString(R.string.text3), false));
-
-    }
 
 
     public void write(View view) {

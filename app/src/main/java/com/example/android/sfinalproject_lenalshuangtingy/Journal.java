@@ -8,6 +8,10 @@ public class Journal implements Serializable {
     private String journalText;
     private boolean marked;
 
+    public Journal(){
+
+    }
+
     public Journal(String journalMonth, String journalDay, String journalText,  boolean marked) {
         this.journalMonth = journalMonth;
         this.journalDay = journalDay;
