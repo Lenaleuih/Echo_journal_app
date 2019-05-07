@@ -17,6 +17,7 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
     public JournalAdapter(ArrayList<Journal> journals, Context context) {
         this.journals = journals;
         this.context = context;
+
     }
 
     @Override
@@ -40,6 +41,8 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
         }
 
     }
+
+
 
     @Override
     public int getItemCount() {

@@ -3,6 +3,7 @@ package com.example.android.sfinalproject_lenalshuangtingy;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ import java.util.Calendar;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     ArrayList<Journal> journals;
     JournalAdapter babyAdapter;
@@ -46,11 +48,10 @@ public class MainActivity extends AppCompatActivity {
         setTitle(" ");
 
 
-
-
         babyRecyclerView = findViewById(R.id.recycler_view);
         babyRecyclerView.setHasFixedSize(true);
         babyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         //read data from firebase
         database = FirebaseDatabase.getInstance();
@@ -60,13 +61,12 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               journals = new ArrayList<>();
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                {
+                journals = new ArrayList<>();
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Journal p = dataSnapshot1.getValue(Journal.class);
                     journals.add(p);
                 }
-                babyAdapter = new JournalAdapter(journals,MainActivity.this);
+                babyAdapter = new JournalAdapter(journals, MainActivity.this);
                 babyRecyclerView.setAdapter(babyAdapter);
 
             }
@@ -82,15 +82,20 @@ public class MainActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         currentDate.setText(date);
+
+
     }
-
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.firstmenu, menu);
         this.menu = menu;
-        return super.onCreateOptionsMenu(menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+
+        return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -114,12 +119,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         journals = new ArrayList<>();
-                        for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
-                        {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             Journal p = dataSnapshot1.getValue(Journal.class);
                             journals.add(p);
                         }
-                        babyAdapter = new JournalAdapter(journals,MainActivity.this);
+                        babyAdapter = new JournalAdapter(journals, MainActivity.this);
                         babyRecyclerView.setAdapter(babyAdapter);
                     }
 
@@ -135,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
 
 
     public void write(View view) {
@@ -171,4 +173,36 @@ public class MainActivity extends AppCompatActivity {
         return newEntry;
     }
 
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        myRef.orderByChild("journalText").startAt(input)
+                .endAt(input+"\uf8ff").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    journals = new ArrayList<>();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        Journal p = dataSnapshot1.getValue(Journal.class);
+                        journals.add(p);
+                    }
+                    babyAdapter = new JournalAdapter(journals, MainActivity.this);
+                    babyRecyclerView.setAdapter(babyAdapter);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        return false;
+    }
 }
