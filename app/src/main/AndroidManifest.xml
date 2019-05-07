@@ -16,7 +16,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ReEditActivity"
-            android:parentActivityName=".ViewActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ViewActivity"
             android:parentActivityName=".CalendarActivity" />

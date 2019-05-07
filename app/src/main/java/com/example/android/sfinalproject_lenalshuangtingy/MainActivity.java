@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 }
                 babyAdapter = new JournalAdapter(journals, MainActivity.this);
                 babyRecyclerView.setAdapter(babyAdapter);
-
             }
 
             @Override
