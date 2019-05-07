@@ -109,6 +109,25 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.markFunction:
                 menu.getItem(1).setIcon(ContextCompat.getDrawable(this, R.drawable.blackbookmark));
+                myRef.orderByChild("marked").equalTo(true).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        journals = new ArrayList<>();
+                        for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
+                        {
+                            Journal p = dataSnapshot1.getValue(Journal.class);
+                            journals.add(p);
+                        }
+                        babyAdapter = new JournalAdapter(journals,MainActivity.this);
+                        babyRecyclerView.setAdapter(babyAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 return true;
 
 
