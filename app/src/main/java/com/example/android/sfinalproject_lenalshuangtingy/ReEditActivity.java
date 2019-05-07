@@ -30,6 +30,7 @@ public class ReEditActivity extends AppCompatActivity {
         previousContent =(TextView) findViewById(R.id.previousContent);
 
 
+        //have i successfully committed??
         //receive data from previous event
         Intent mIntent= getIntent();
         String passedContent = mIntent.getStringExtra(Keys.CONTENT_KEY);
