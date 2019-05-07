@@ -16,6 +16,7 @@ import java.util.Calendar;
 public class ReEditActivity extends AppCompatActivity {
 
     private TextView currentTime;
+    private TextView previousContent;
     private String prompts;
     private EditText content;
 
@@ -25,11 +26,21 @@ public class ReEditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_re_edit);
 
         content = (EditText) findViewById(R.id.reEditContent);
-
         currentTime = (TextView) findViewById(R.id.currentTime);
+        previousContent =(TextView) findViewById(R.id.previousContent);
+
+
+        //receive data from previous event
+        Intent mIntent= getIntent();
+        String passedContent = mIntent.getStringExtra(Keys.CONTENT_KEY);
+        //String date = mIntent.getStringExtra(Keys.DATE_KEY);
+
+        previousContent.setText(passedContent);
+
+        //get current date
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
-        String date = df.format(Calendar.getInstance().getTime());
-        currentTime.setText(date);
+        String currentDate = df.format(Calendar.getInstance().getTime());
+        currentTime.setText(currentDate);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -93,6 +93,8 @@ public class ViewActivity extends AppCompatActivity {
 
     public void reEdit(View view) {
         Intent msIntent = new Intent(this, ReEditActivity.class);
+        msIntent.putExtra(Keys.DATE_KEY, entryTime.getText().toString());
+        msIntent.putExtra(Keys.CONTENT_KEY,entryContent.getText().toString());
         startActivity(msIntent);
     }
 

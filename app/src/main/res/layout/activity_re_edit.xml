@@ -36,6 +36,7 @@
             android:layout_below="@id/title">
 
             <TextView
+                android:id="@+id/previousContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -97,7 +98,7 @@
             android:layout_marginBottom="12dp"
             android:background="@color/colorPrimaryCream"
             android:drawableTop="@drawable/click"
-
+            android:onClick="saveComment"
             android:paddingTop="12dp"
             android:paddingBottom="0dp" />
 
