@@ -2,6 +2,7 @@ package com.example.android.sfinalproject_lenalshuangtingy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,13 +10,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ViewActivity extends AppCompatActivity {
 
-    private TextView currentTime;
+    private TextView entryTime;
+    private TextView entryContent;
+
+    //connect to the database
+//    private FirebaseDatabase database;
+//    private DatabaseReference myRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +37,36 @@ public class ViewActivity extends AppCompatActivity {
 
         setTitle("On the day when..");
 
-        //display the current time on the layout
-        currentTime=(TextView)findViewById(R.id.currentTime);
-        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
-        String date = df.format(Calendar.getInstance().getTime());
-        currentTime.setText(date);
+        //get the data from previous activity
+        Intent mIntent= getIntent();
+        String content = mIntent.getStringExtra(Keys.CONTENT_KEY);
+        String date = mIntent.getStringExtra(Keys.DATE_KEY);
+
+        //initialize database and reference
+//        database = FirebaseDatabase.getInstance();
+//        myRef = database.getReference("journal");
+
+
+        //initialize textViews
+        entryTime=(TextView)findViewById(R.id.entryTime);
+        entryContent=(TextView)findViewById(R.id.entryContent);
+
+        //retrieve data and display them on the layout
+//        myRef.orderByChild("JournalText").equalTo(index).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                Journal p = dataSnapshot.getValue(Journal.class);
+//                entryTime.setText(p.getJournalMonth()+p.getJournalDay());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+        //set the layout
+        entryTime.setText(date);
+        entryContent.setText(content);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

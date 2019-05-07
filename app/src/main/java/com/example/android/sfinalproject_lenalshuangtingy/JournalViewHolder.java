@@ -33,8 +33,10 @@ public class JournalViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 String contentAsIndex = contentTextView.getText().toString();
+                String timeAsIndex = monthTextView.getText().toString()+" "+dayTextView.getText().toString();
                 Intent intent = new Intent(itemView.getContext(), ViewActivity.class);
                 intent.putExtra(Keys.CONTENT_KEY,contentAsIndex);
+                intent.putExtra(Keys.DATE_KEY,timeAsIndex);
 
                 itemView.getContext().startActivity(intent);
 
