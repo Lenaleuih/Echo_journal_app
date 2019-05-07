@@ -55,23 +55,12 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft= "48dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/colorPrimaryCream"
-            android:drawableTop="@drawable/hints"
-            android:onClick="launchPrompt"
-            android:paddingTop="12dp"
-            android:paddingBottom="0dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft= "32dp"
+            android:layout_marginLeft= "160dp"
             android:layout_marginBottom="12dp"
             android:background="@color/colorPrimaryCream"
             android:drawableTop="@drawable/add"

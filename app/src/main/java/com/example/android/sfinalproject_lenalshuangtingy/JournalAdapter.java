@@ -51,4 +51,3 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalViewHolder> {
     }
 
 }
-

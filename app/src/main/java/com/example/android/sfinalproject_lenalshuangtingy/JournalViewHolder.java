@@ -77,4 +77,3 @@ public class JournalViewHolder extends RecyclerView.ViewHolder {
         this.monthTextView = monthTextView;
     }
 }
-

@@ -1,9 +1,11 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,12 +16,15 @@ import java.util.Calendar;
 public class ReEditActivity extends AppCompatActivity {
 
     private TextView currentTime;
+    private String prompts;
+    private EditText content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_re_edit);
 
+        content = (EditText) findViewById(R.id.reEditContent);
 
         currentTime = (TextView) findViewById(R.id.currentTime);
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
@@ -34,5 +39,18 @@ public class ReEditActivity extends AppCompatActivity {
 
     public void saveComment(View view) {
         Toast.makeText(this, "saved", Toast.LENGTH_SHORT).show();
+    }
+
+    public void launchPrompt(View view) {
+        Intent msIntent = new Intent(this, PromptActivity.class);
+        startActivityForResult(msIntent, 111);
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 111 && resultCode == RESULT_OK) {
+            prompts = data.getStringExtra(Keys.PROMPT_KEY);
+            content.setText(prompts);
+        }
     }
 }
