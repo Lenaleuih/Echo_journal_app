@@ -4,7 +4,9 @@
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryCream</item>
+        <item name="android:editTextColor">@color/colorTextColor</item>
         <item name="colorPrimaryDark">@color/colorPrimaryGrey</item>
+        <item name="android:homeAsUpIndicator">@drawable/gobackarrow</item>
         <!--<item name="colorAccent">@color/color</item>-->
         <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>
         <item name="actionButtonStyle">@style/myActionButtonStyle</item>
