@@ -1,6 +1,7 @@
 package com.example.android.sfinalproject_lenalshuangtingy;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,7 @@ public class EditActivity extends AppCompatActivity {
     private EditText content;
     private String entry;
     private Boolean marked;
+    private Menu menu;
 
 
     @Override
@@ -33,6 +35,7 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         setTitle(" ");
+
         marked = false;
 
         content = (EditText) findViewById(R.id.input);
@@ -48,6 +51,7 @@ public class EditActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.editactivitymenu, menu);
+        this.menu = menu;
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -56,7 +60,7 @@ public class EditActivity extends AppCompatActivity {
 
             case R.id.markFunction:
                 marked = true;
-
+                menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.blackbookmark));
                 return true;
 
 

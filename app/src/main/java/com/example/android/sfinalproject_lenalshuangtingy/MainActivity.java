@@ -2,6 +2,7 @@ package com.example.android.sfinalproject_lenalshuangtingy;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private RecyclerView babyRecyclerView;
+    private Menu menu;
 
 
     @Override
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setTitle(" ");
+
 
 
 
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.firstmenu, menu);
+        this.menu = menu;
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -100,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.calendarView:
                 Intent intent = new Intent(this, CalendarActivity.class);
                 startActivity(intent);
+                return true;
+
+
+            case R.id.markFunction:
+                menu.getItem(1).setIcon(ContextCompat.getDrawable(this, R.drawable.blackbookmark));
                 return true;
 
 
